@@ -53,6 +53,7 @@ UST_DATA_TRACE=$(top_builddir)/src/bin/lttng-sessiond/trace-ust.o \
 	       $(top_builddir)/src/bin/lttng-sessiond/utils.o \
 		   $(top_builddir)/src/bin/lttng-sessiond/buffer-registry.o \
 		   $(top_builddir)/src/bin/lttng-sessiond/ust-registry.o \
+		   $(top_builddir)/src/bin/lttng-sessiond/ust-field-utils.o \
 		   $(top_builddir)/src/bin/lttng-sessiond/ust-metadata.o \
 		   $(top_builddir)/src/bin/lttng-sessiond/ust-app.o \
 		   $(top_builddir)/src/bin/lttng-sessiond/ust-consumer.o \
