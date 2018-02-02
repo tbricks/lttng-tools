@@ -3,6 +3,7 @@ SUBDIRS = nprocesses high-throughput low-throughput before-after multi-session \
 		overlap buffers-pid linking daemon exit-fast fork libc-wrapper \
 		periodical-metadata-flush java-jul java-log4j python-logging \
 		getcpu-override clock-override
+		blocking multi-lib
 
 EXTRA_DIST = test_event_basic test_event_tracef test_event_perf
 
