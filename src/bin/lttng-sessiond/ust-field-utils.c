@@ -218,28 +218,6 @@ int match_ustctl_field(struct ustctl_field *first, struct ustctl_field *second)
 		}
 
 		break;
-	case ustctl_atype_variant:
-		/* Compare number of choice of the variants. */
-		if (first->type.u.variant.nr_choices !=
-					second->type.u.variant.nr_choices) {
-			goto no_match;
-		}
-
-		/* Compare tag name of the variants. */
-		if (strncmp(first->type.u.variant.tag_name,
-					second->type.u.variant.tag_name,
-					LTTNG_UST_SYM_NAME_LEN)) {
-			goto no_match;
-		}
-
-		break;
-	case ustctl_atype_struct:
-		/* Compare number of fields of the structs. */
-		if (first->type.u._struct.nr_fields != second->type.u._struct.nr_fields) {
-			goto no_match;
-		}
-
-		break;
 	default:
 		goto no_match;
 	}
