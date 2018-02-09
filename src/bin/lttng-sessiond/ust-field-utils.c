@@ -76,40 +76,6 @@ static bool match_ustctl_field_integer_from_raw_basic_type(
 }
 
 /*
- * Compare two _ustctl_basic_type fields known to be of type enum.
- * Returns 1 if both are identical.
- */
-static bool match_ustctl_field_enum_from_raw_basic_type(
-			union _ustctl_basic_type *first, union _ustctl_basic_type *second)
-{
-	/*
-	 * Compare enumeration ID. Enumeration ID is provided to the application by
-	 * the session daemon before event registration.
-	 */
-	if (first->enumeration.id != second->enumeration.id) {
-		goto no_match;
-	}
-
-	/*
-	 * Sanity check of the name and container type. Those were already checked
-	 * during enum registration.
-	 */
-	if (strncmp(first->enumeration.name, second->enumeration.name,
-				LTTNG_UST_SYM_NAME_LEN)) {
-		goto no_match;
-	}
-	if (!match_ustctl_field_integer(&first->enumeration.container_type,
-				&second->enumeration.container_type)) {
-		goto no_match;
-	}
-
-	return true;
-
-no_match:
-	return false;
-}
-
-/*
  * Compare two _ustctl_basic_type fields known to be of type string.
  * Returns 1 if both are identical.
  */
@@ -169,11 +135,6 @@ static bool match_ustctl_field_raw_basic_type(
 			goto no_match;
 		}
 		break;
-	case ustctl_atype_enum:
-		if (!match_ustctl_field_enum_from_raw_basic_type(first, second)) {
-			goto no_match;
-		}
-		break;
 	case ustctl_atype_string:
 		if (!match_ustctl_field_string_from_raw_basic_type(first, second)) {
 			goto no_match;
@@ -219,8 +180,9 @@ int match_ustctl_field(struct ustctl_field *first, struct ustctl_field *second)
 
 	/* Check the field layout. */
 	switch (first->type.atype) {
-	case ustctl_atype_integer:
 	case ustctl_atype_enum:
+		goto no_match;
+	case ustctl_atype_integer:
 	case ustctl_atype_string:
 	case ustctl_atype_float:
 		if (!match_ustctl_field_raw_basic_type(first->type.atype,
