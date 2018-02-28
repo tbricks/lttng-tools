@@ -185,6 +185,9 @@ extern const char * const mi_lttng_element_snapshots;
 /* String related to track/untrack command */
 const char * const mi_lttng_element_track_untrack_all_wildcard;
 
+/* String related to add-context command */
+LTTNG_HIDDEN extern const char * const mi_lttng_element_context_symbol;
+
 /* Utility string function  */
 const char *mi_lttng_loglevel_string(int value, enum lttng_domain_type domain);
 const char *mi_lttng_logleveltype_string(enum lttng_loglevel_type value);

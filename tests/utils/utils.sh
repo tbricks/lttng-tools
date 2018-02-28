@@ -1305,6 +1305,13 @@ function lttng_untrack_fail()
 	lttng_untrack 1 "$@"
 }
 
+function lttng_add_context_list()
+{
+	$TESTDIR/../src/bin/lttng/$LTTNG_BIN add-context --list 1> $OUTPUT_DEST 2> $ERROR_OUTPUT_DEST
+	ret=$?
+	ok $ret "Context listing"
+}
+
 function add_context_lttng()
 {
 	local expected_to_fail="$1"

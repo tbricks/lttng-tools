@@ -179,6 +179,9 @@ const char * const mi_lttng_element_snapshots = "snapshots";
 /* String related to track/untrack command */
 const char * const mi_lttng_element_track_untrack_all_wildcard = "*";
 
+/* String related to add-context command */
+LTTNG_HIDDEN const char * const mi_lttng_element_context_symbol = "symbol";
+
 /* Deprecated symbols preserved for ABI compatibility. */
 const char * const mi_lttng_context_type_perf_counter;
 const char * const mi_lttng_context_type_perf_cpu_counter;
