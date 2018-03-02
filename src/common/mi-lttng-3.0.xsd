@@ -116,6 +116,9 @@ THE SOFTWARE.
 			<xs:enumeration value="PREEMPTIBLE" />
 			<xs:enumeration value="NEED_RESCHEDULE" />
 			<xs:enumeration value="MIGRATABLE" />
+			<xs:enumeration value="PERF_COUNTER" />
+			<xs:enumeration value="PERF_CPU_COUNTER" />
+			<xs:enumeration value="PERF_THREAD_COUNTER" />
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -481,8 +484,9 @@ THE SOFTWARE.
 	<!-- Maps to lttng_event_context -->
 	<xs:complexType name="context_type">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element name="type" type="tns:context_type_type"/>
+			<xs:element name="type" type="tns:context_type_type" minOccurs="0"/>
+			<xs:element name="value" type="xs:integer" minOccurs="0" />
+			<xs:choice minOccurs="0">
 				<xs:element name="perf" type="tns:perf_counter_context_type"/>
 				<xs:element name="app" type="tns:app_context_type"/>
 			</xs:choice>

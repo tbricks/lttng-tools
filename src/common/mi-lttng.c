@@ -43,6 +43,9 @@ LTTNG_HIDDEN const char * const mi_lttng_schema_version = "schemaVersion";
 LTTNG_HIDDEN const char * const mi_lttng_schema_version_value = XSTR(MI_SCHEMA_MAJOR_VERSION)
 	"." XSTR(MI_SCHEMA_MINOR_VERSION);
 
+/* Utility strings */
+const char * const mi_lttng_element_value = "value";
+
 /* Strings related to command */
 const char * const mi_lttng_element_command = "command";
 const char * const mi_lttng_element_command_action = "snapshot_action";
@@ -181,6 +184,9 @@ const char * const mi_lttng_element_track_untrack_all_wildcard = "*";
 
 /* String related to add-context command */
 LTTNG_HIDDEN const char * const mi_lttng_element_context_symbol = "symbol";
+const char * const mi_lttng_element_context_perf_counter = "PERF_COUNTER";
+const char * const mi_lttng_element_context_perf_cpu_counter = "PERF_CPU_COUNTER";
+const char * const mi_lttng_element_context_perf_thread_counter = "PERF_THREAD_COUNTER";
 
 /* Deprecated symbols preserved for ABI compatibility. */
 const char * const mi_lttng_context_type_perf_counter;
@@ -386,6 +392,12 @@ const char *mi_lttng_event_contexttype_string(enum lttng_event_context_type val)
 		return config_event_context_need_reschedule;
 	case LTTNG_EVENT_CONTEXT_MIGRATABLE:
 		return config_event_context_migratable;
+	case LTTNG_EVENT_CONTEXT_PERF_COUNTER:
+		return mi_lttng_element_context_perf_counter;
+	case LTTNG_EVENT_CONTEXT_PERF_THREAD_COUNTER:
+		return mi_lttng_element_context_perf_thread_counter;
+	case LTTNG_EVENT_CONTEXT_PERF_CPU_COUNTER:
+		return mi_lttng_element_context_perf_cpu_counter;
 	default:
 		return NULL;
 	}
@@ -1528,9 +1540,31 @@ int mi_lttng_context(struct mi_writer *writer,
 		struct lttng_event_context *context, int is_open)
 {
 	int ret;
+	const char *type_string;
 
 	/* Open context */
 	ret = mi_lttng_writer_open_element(writer , config_element_context);
+	if (ret) {
+		goto end;
+	}
+
+	type_string = mi_lttng_event_contexttype_string(
+			context->ctx);
+	if (!type_string) {
+		ret = -LTTNG_ERR_INVALID;
+		goto end;
+	}
+
+	/* Print context type */
+	ret = mi_lttng_writer_write_element_string(writer,
+			config_element_type, type_string);
+	if (ret) {
+		goto end;
+	}
+
+	/* Print context type value */
+	ret = mi_lttng_writer_write_element_signed_int(writer,
+			mi_lttng_element_value, context->ctx);
 	if (ret) {
 		goto end;
 	}
@@ -1561,19 +1595,7 @@ int mi_lttng_context(struct mi_writer *writer,
 		break;
 	}
 	default:
-	{
-		const char *type_string = mi_lttng_event_contexttype_string(
-				context->ctx);
-		if (!type_string) {
-			ret = -LTTNG_ERR_INVALID;
-			goto end;
-		}
-
-		/* Print context type */
-		ret = mi_lttng_writer_write_element_string(writer,
-				config_element_type, type_string);
 		break;
-	}
 	}
 
 	/* Close context */
