@@ -41,6 +41,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <config.h>
+#include <netinet/in.h>
+#include <netinet/tcp.h>
 
 #include <lttng/lttng.h>
 #include <common/common.h>
@@ -578,6 +580,14 @@ restart:
 						sizeof(val));
 				if (ret < 0) {
 					PERROR("setsockopt inet");
+					lttcomm_destroy_sock(newsock);
+					goto error;
+				}
+				val = 1;
+				ret = setsockopt(newsock->fd, SOL_TCP, TCP_NODELAY, &val,
+						sizeof(val));
+				if (ret < 0) {
+					PERROR("setsockopt TCP_NODELAY");
 					lttcomm_destroy_sock(newsock);
 					goto error;
 				}
