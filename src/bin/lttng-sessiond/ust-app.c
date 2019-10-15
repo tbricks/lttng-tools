@@ -4204,19 +4204,7 @@ int ust_app_create_channel_glb(struct ltt_ust_session *usess,
 			if (created) {
 				destroy_app_session(app, ua_sess);
 			}
-			switch (ret) {
-			case -ENOTCONN:
-				/*
-				 * The application's socket is not valid. Either a bad socket
-				 * or a timeout on it. We can't inform the caller that for a
-				 * specific app, the session failed so lets continue here.
-				 */
-				ret = 0;	/* Not an error. */
-				continue;
-			case -ENOMEM:
-			default:
-				goto error_rcu_unlock;
-			}
+			/* Continue to the next application. */
 		}
 	}
 
