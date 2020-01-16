@@ -80,19 +80,19 @@ struct ust_register_msg {
  * Global applications HT used by the session daemon. This table is indexed by
  * PID using the pid_n node and pid value of an ust_app.
  */
-struct lttng_ht *ust_app_ht;
+extern struct lttng_ht *ust_app_ht;
 
 /*
  * Global applications HT used by the session daemon. This table is indexed by
  * socket using the sock_n node and sock value of an ust_app.
  */
-struct lttng_ht *ust_app_ht_by_sock;
+extern struct lttng_ht *ust_app_ht_by_sock;
 
 /*
  * Global applications HT used by the session daemon. This table is indexed by
  * socket using the notify_sock_n node and notify_sock value of an ust_app.
  */
-struct lttng_ht *ust_app_ht_by_notify_sock;
+extern struct lttng_ht *ust_app_ht_by_notify_sock;
 
 /* Stream list containing ust_app_stream. */
 struct ust_app_stream_list {

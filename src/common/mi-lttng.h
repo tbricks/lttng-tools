@@ -107,8 +107,8 @@ extern const char * const mi_lttng_element_save;
 
 /* Strings related to load command */
 extern const char * const mi_lttng_element_load;
-LTTNG_HIDDEN const char * const mi_lttng_element_load_overrides;
-LTTNG_HIDDEN const char * const mi_lttng_element_load_override_url;
+LTTNG_HIDDEN extern const char * const mi_lttng_element_load_overrides;
+LTTNG_HIDDEN extern const char * const mi_lttng_element_load_override_url;
 
 /* General element of mi_lttng */
 extern const char * const mi_lttng_element_empty;
@@ -183,7 +183,7 @@ extern const char * const mi_lttng_element_snapshot_session_name;
 extern const char * const mi_lttng_element_snapshots;
 
 /* String related to track/untrack command */
-const char * const mi_lttng_element_track_untrack_all_wildcard;
+extern const char * const mi_lttng_element_track_untrack_all_wildcard;
 
 /* String related to add-context command */
 LTTNG_HIDDEN extern const char * const mi_lttng_element_context_symbol;
