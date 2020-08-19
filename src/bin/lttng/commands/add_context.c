@@ -518,7 +518,7 @@ enum lttng_domain_type get_domain(void)
 	} else if (opt_log4j) {
 		return LTTNG_DOMAIN_LOG4J;
 	} else {
-		assert(0);
+		return LTTNG_DOMAIN_NONE;
 	}
 }
 
@@ -720,6 +720,7 @@ static int add_context(char *session_name)
 	memset(&dom, 0, sizeof(dom));
 
 	dom.type = get_domain();
+	assert(dom.type != LTTNG_DOMAIN_NONE);
 	handle = lttng_create_handle(session_name, &dom);
 	if (handle == NULL) {
 		ret = CMD_ERROR;
