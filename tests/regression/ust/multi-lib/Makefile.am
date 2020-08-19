@@ -19,7 +19,7 @@ PROBES_LDF=-shared -module -llttng-ust -avoid-version -rpath $(abs_builddir)/.li
 PROBES_CF=-c -I$(srcdir)/
 
 probes.o: probes.c probes.h
-	$(CC) $(PROBES_CF) -o $@ $<
+	$(CC) $(CPPFLAGS) $(PROBES_CF) -o $@ $<
 
 noinst_LTLIBRARIES = libprobes_a.la libprobes_a_prime.la \
 			libprobes_b.la libprobes_c.la libprobes_c_prime.la \
@@ -34,7 +34,7 @@ noinst_LTLIBRARIES += libcallsites_probes_a.la libcallsites_probes_b.la
 
 CALLSITES_SRC=callsites.c callsites.h
 CALLSITES_LDF=-shared -module -llttng-ust -avoid-version -rpath $(abs_builddir)/.libs/
-CALLSITES_CF=-c -I.
+CALLSITES_CF=-c -I$(srcdir) -I.
 
 libprobes_a_la_SOURCES = $(PROBES_SRC)
 libprobes_a_la_LDFLAGS = $(PROBES_LDF)
