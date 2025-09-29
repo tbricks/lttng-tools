@@ -19,6 +19,8 @@
 #include <lttng/condition/event-rule-matches-internal.h>
 #include "condition-internal.h"
 
+#include <assert.h>
+
 static
 unsigned long lttng_condition_buffer_usage_hash(
 	const struct lttng_condition *_condition)

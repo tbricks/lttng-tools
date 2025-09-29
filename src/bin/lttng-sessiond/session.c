@@ -6,6 +6,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <limits.h>
 #include <inttypes.h>
 #include <stdio.h>

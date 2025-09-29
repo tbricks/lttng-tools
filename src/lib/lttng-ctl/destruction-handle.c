@@ -19,6 +19,7 @@
 #include <lttng/location-internal.h>
 #include "lttng-ctl-helper.h"
 
+#include <assert.h>
 #include <stdbool.h>
 
 enum communication_state {

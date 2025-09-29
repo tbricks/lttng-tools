@@ -10,6 +10,7 @@
 #include "common/argpar-utils/argpar-utils.h"
 #include "common/mi-lttng.h"
 #include <lttng/lttng.h>
+#include <assert.h>
 #include <stdio.h>
 
 #ifdef LTTNG_EMBED_HELP

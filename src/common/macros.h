@@ -9,6 +9,7 @@
 #ifndef _MACROS_H
 #define _MACROS_H
 
+#include <assert.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>

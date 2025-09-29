@@ -6,6 +6,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdarg.h>

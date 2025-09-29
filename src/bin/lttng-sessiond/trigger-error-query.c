@@ -9,6 +9,7 @@
 #include <lttng/error-query-internal.h>
 #include <lttng/trigger/trigger-internal.h>
 #include <lttng/action/action-internal.h>
+#include <assert.h>
 
 LTTNG_HIDDEN
 enum lttng_trigger_status lttng_trigger_add_error_results(

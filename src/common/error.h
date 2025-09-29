@@ -9,6 +9,7 @@
 #define _ERROR_H
 
 #include <common/compat/errno.h>
+#include <assert.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>

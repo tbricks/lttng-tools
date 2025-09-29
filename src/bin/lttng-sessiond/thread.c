@@ -8,6 +8,7 @@
 #include "thread.h"
 #include <urcu/list.h>
 #include <urcu/ref.h>
+#include <assert.h>
 #include <pthread.h>
 #include <common/macros.h>
 #include <common/error.h>

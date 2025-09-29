@@ -10,6 +10,7 @@
 #include "common/dynamic-array.h"
 #include "common/macros.h"
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <grp.h>
 #include <pwd.h>
 #include <sys/types.h>

@@ -9,6 +9,7 @@
 #include <urcu/list.h>
 #include <urcu/rculfhash.h>
 
+#include <assert.h>
 #include <fcntl.h>
 #include <inttypes.h>
 #include <pthread.h>

@@ -5,6 +5,7 @@
  *
  */
 
+#include <assert.h>
 #include <unistd.h>
 #include <urcu/ref.h>
 

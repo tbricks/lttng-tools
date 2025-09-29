@@ -11,6 +11,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <unistd.h>
 #include <sys/types.h>
 #include <stdint.h>

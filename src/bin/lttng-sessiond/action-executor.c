@@ -28,6 +28,7 @@
 #include <lttng/condition/event-rule-matches-internal.h>
 #include <lttng/lttng-error.h>
 #include <lttng/trigger/trigger-internal.h>
+#include <assert.h>
 #include <pthread.h>
 #include <stdbool.h>
 #include <stddef.h>

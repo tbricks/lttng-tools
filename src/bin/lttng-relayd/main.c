@@ -9,6 +9,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <getopt.h>
 #include <grp.h>
 #include <limits.h>

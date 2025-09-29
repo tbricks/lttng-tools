@@ -7,6 +7,7 @@
  *
  */
 
+#include <assert.h>
 #include <signal.h>
 
 #include <common/pipe.h>

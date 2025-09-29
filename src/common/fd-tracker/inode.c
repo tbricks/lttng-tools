@@ -12,6 +12,7 @@
 #include <common/optional.h>
 #include <common/string-utils/format.h>
 #include <common/utils.h>
+#include <assert.h>
 #include <inttypes.h>
 #include <lttng/constant.h>
 #include <sys/stat.h>

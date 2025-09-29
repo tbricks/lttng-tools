@@ -8,6 +8,7 @@
 
 #define _LGPL_SOURCE
 #include <urcu/list.h>
+#include <assert.h>
 #include <string.h>
 
 #include <common/compat/errno.h>

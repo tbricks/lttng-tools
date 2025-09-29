@@ -8,6 +8,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <fcntl.h>
 #include <getopt.h>
 #include <grp.h>

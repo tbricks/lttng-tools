@@ -18,6 +18,7 @@
 #include <lttng/error-query-internal.h>
 #include <lttng/error-query.h>
 #include <lttng/trigger/trigger-internal.h>
+#include <assert.h>
 #include <stddef.h>
 
 struct lttng_error_query {

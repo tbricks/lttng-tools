@@ -8,6 +8,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <common/common.h>
 #include <common/compat/path.h>
 #include <common/fd-tracker/utils.h>

@@ -17,6 +17,7 @@
 #include <common/time.h>
 #include <common/hashtable/utils.h>
 
+#include <assert.h>
 #include <inttypes.h>
 #include <signal.h>
 #include <sys/eventfd.h>

@@ -5,6 +5,7 @@
  *
  */
 
+#include <assert.h>
 #include "sessiond-trace-chunks.h"
 #include <urcu.h>
 #include <urcu/rculfhash.h>

@@ -23,6 +23,7 @@
 #include <common/utils.h>
 #include <lttng/constant.h>
 
+#include <assert.h>
 #include <inttypes.h>
 #include <pthread.h>
 #include <stdio.h>

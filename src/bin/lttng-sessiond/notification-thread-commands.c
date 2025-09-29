@@ -10,6 +10,7 @@
 #include "notification-thread.h"
 #include "notification-thread-commands.h"
 #include <common/error.h>
+#include <assert.h>
 #include <unistd.h>
 #include <stdint.h>
 #include <inttypes.h>

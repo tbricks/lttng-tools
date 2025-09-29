@@ -7,6 +7,7 @@
  */
 
 #define _LGPL_SOURCE
+#include <assert.h>
 #include <fcntl.h>
 #include <limits.h>
 #include <sys/mman.h>

@@ -19,6 +19,7 @@
 #include <common/kernel-ctl/kernel-ctl.h>
 #include <common/credentials.h>
 #include <sys/stat.h>
+#include <assert.h>
 #include <time.h>
 #include <signal.h>
 #include <inttypes.h>

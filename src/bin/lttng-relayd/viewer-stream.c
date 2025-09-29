@@ -12,6 +12,7 @@
 #include <common/index/index.h>
 #include <common/compat/string.h>
 #include <common/utils.h>
+#include <assert.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>

@@ -14,6 +14,7 @@
 #include <common/fs-handle.h>
 #include <common/sessiond-comm/relayd.h>
 #include <common/utils.h>
+#include <assert.h>
 #include <sys/stat.h>
 #include <urcu/rculist.h>
 

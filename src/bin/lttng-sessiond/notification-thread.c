@@ -19,6 +19,7 @@
 #include <common/time.h>
 #include <sys/stat.h>
 #include <sys/eventfd.h>
+#include <assert.h>
 #include <time.h>
 #include <signal.h>
 

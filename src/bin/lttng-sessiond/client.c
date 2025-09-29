@@ -26,6 +26,7 @@
 #include <lttng/session-descriptor-internal.h>
 #include <lttng/session-internal.h>
 #include <lttng/userspace-probe-internal.h>
+#include <assert.h>
 #include <pthread.h>
 #include <signal.h>
 #include <stddef.h>
